@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <title>Boo</title>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <style>
+        body {
+            font-family: Calibri, Verdana, Arial, Sans-Serif;
+            font-size: 16px/21px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/sunny/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="jquery.lgwidgets.css"/>
+    <script src="jquery.lgwidgets.js"></script>
+</head>
+<body>
+
+<div style="background-color: #E0E0E0;">
+    A bar that will animate
+
+    <br/>
+    <br/>
+
+    <div class="auto1 red"></div>
+
+    <br/>
+    <br/>
+
+    <div class="auto1 red"></div>
+
+    <br/>
+    <br/>
+
+    <div class="auto1 red big"></div>
+
+    <br/>
+    <br/>
+
+    <div class="bubu"></div>
+
+    <br/>
+    <br/>
+
+    <div class="bubu big"></div>
+
+    <br/>
+    <br/>
+
+    <button id="one">ClickMe</button>
+
+    <br/>
+    <br/>
+
+    <div style="margin-top: 1em; margin-bottom: 1em;clear:both;">
+        <div style="width: 150px; float: left;">
+            TOTAL
+        </div>
+        <div class="total red big" style="float: left;">
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div style="margin-top: 1em; margin-bottom: 1em;clear:both;">
+        <div style="width: 150px; float: left;">
+            John Doe
+        </div>
+        <div class="p1" id="1" style="float: left;">
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div style="margin-top: 1em; margin-bottom: 1em;clear:both;">
+        <div style="width: 150px; float: left;">
+            Peter Pan
+        </div>
+        <div class="p1" id="2" style="float: left;">
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div style="margin-top: 1em; margin-bottom: 1em;clear:both;">
+        <div style="width: 150px; float: left;">
+            Mary Poppins
+        </div>
+        <div class="p1" id="3" style="float: left;">
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+
+    <br/>
+    <br/>
+</div>
+<script>
+    $(function() {
+
+        var vals = [1,1,1];
+
+        $(".total").progressbar({
+            startingValue: 25,
+            tickStops: [25,50,75,99]
+        });
+
+        $(".p1").trackbar({
+            onChange: function(v) {
+                var index = parseInt($(this.element).attr("id"));
+                var val = v/25;
+                vals[index-1] = val;
+
+                var avg = (vals[0] + vals[1] + vals[2]) / 3 * 25;
+
+                $(".total").progressbar(avg)
+            }
+        });
+
+        $(".auto1").progressbar({ticks:false});
+        $(".bubu").progressbar();
+
+       $("#one").click(function() {
+            $(".bubu, .auto1").each(function(i,e) {
+                var val = Math.random()*100;
+                $(e).progressbar(val);
+            });
+       });
+
+    });
+</script>
+</body>
+</html>

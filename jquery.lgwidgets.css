@@ -1,0 +1,89 @@
+.progress-bar {
+    position: relative;
+    width: 300px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: #C0C0C0;
+}
+
+.progress-bar .progress-bar-inner {
+    position: relative;
+    height: 20px;
+    background-color: #808080;
+    border-radius: 4px;
+    z-index: 400;
+}
+
+.progress-bar .progress-bar-tick {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    margin-top: 7px;
+    background: none;
+    border-right: 2px solid #A0A0A0;
+    z-index: 500;
+}
+
+.progress-bar.red {
+    background-color: #FFF;
+}
+
+.progress-bar.red .progress-bar-inner {
+    background-color: #A4331A;
+}
+
+.progress-bar.red .progress-bar-tick {
+    border-right: 2px solid #E74F13;
+}
+
+.progress-bar.big {
+    height: 35px;
+}
+
+.progress-bar.big .progress-bar-inner {
+    height: 35px;
+}
+
+.progress-bar.big .progress-bar-tick {
+    height: 13px;
+    margin-top: 11px;
+}
+
+.trackbar {
+    position: relative;
+    width: 300px;
+    height: 19px;
+    background-color: #C0C0C0;
+    border-radius: 4px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.trackbar .trackbar-track {
+    position: relative;
+    height: 19px;
+    background-color: #A4331A;
+    border-radius: 4px;
+}
+
+.trackbar .trackbar-knob {
+    position: absolute;
+    top: -5px;
+    border-radius: 13px;
+    height: 24px;
+    width: 26px;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 6px;
+    padding-left: 1px;
+    padding-right: 1px;
+    background-color: #600000;
+    cursor: pointer;
+}
